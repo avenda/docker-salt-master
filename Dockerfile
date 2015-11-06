@@ -12,9 +12,10 @@ RUN apt-key add /tmp/debian-salt-team-joehealy.gpg.key && \
 ENV SALT_VERSION 2015.5.3+ds-1~bpo70+2
 RUN apt-get update && apt-get install -yq --no-install-recommends \
   salt-master=${SALT_VERSION} salt-api=${SALT_VERSION} \
-  python-git python-openssl python-cherrypy3 python-pip python-pymongo
+  python-git python-openssl python-cherrypy3 python-pip
 
 RUN pip install Halite
+RUN pip install pymongo
 
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh
